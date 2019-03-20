@@ -16,12 +16,12 @@
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     {% endblock %}
 
-    {% block stylesheets %}
+    {% block select2Styles %}
+    {# We brought this library in to support GenemuFormBundle #}
+    <link rel="stylesheet" href="{{ asset('/bundles/sccore/third-party/select2-master/select2.css') }}">
+    {% endblock select2Styles %}
 
-        {# We brought this library in to support GenemuFormBundle #}
-        <link rel="stylesheet" href="{{ asset('/bundles/sccore/third-party/select2-master/select2.css') }}">
-
-    {% endblock %}
+    {% block stylesheets %}{% endblock %}
 </head>
 <body {% block bodyAttributes %}{% endblock %}>
 {#
@@ -51,11 +51,12 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 {% endblock %}
 
-
-{% block javascripts %}
-
+{% block select2Js %}
     {# We brought this library in to support GenemuFormBundle #}
     <script src="{{ asset('/bundles/sccore/third-party/select2-master/select2.js') }}"></script>
+{% endblock select2Js %}
+
+{% block javascripts %}
     <script type="text/javascript">
         $(function() {
 
