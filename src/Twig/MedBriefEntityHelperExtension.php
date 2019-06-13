@@ -3,6 +3,8 @@
 namespace MedBrief\CoreBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use \Twig\Extension\AbstractExtension;
+use \Twig\TwigFunction;
 
 /**
  * Class MedBriefEntityHelperExtension
@@ -12,10 +14,18 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @package MedBrief\CoreBundle\Twig
  */
-class MedBriefEntityHelperExtension extends \Twig_Extension
+class MedBriefEntityHelperExtension extends AbstractExtension
 {
+	/**
+	 * @var ContainerInterface
+	 */
     protected $_serviceContainer;
-    
+
+	/**
+	 * MedBriefEntityHelperExtension constructor.
+	 *
+	 * @param ContainerInterface $sc
+	 */
     public function __construct(ContainerInterface $sc)
     {
         $this->_serviceContainer = $sc;
@@ -25,7 +35,7 @@ class MedBriefEntityHelperExtension extends \Twig_Extension
     {
         return array(
             
-            new \Twig_SimpleFunction('get_entity_helper', array($this, 'getEntityHelper')),
+            new TwigFunction('get_entity_helper', array($this, 'getEntityHelper')),
         );
     }
 
@@ -37,11 +47,5 @@ class MedBriefEntityHelperExtension extends \Twig_Extension
      */
     public function getEntityHelper($entity){
         return $this->_serviceContainer->get('mb_core.entity_helper_factory')->getEntityHelper($entity);
-    }
-
-
-    public function getName()
-    {
-        return 'mb_entity_helper_extension';
     }
 }

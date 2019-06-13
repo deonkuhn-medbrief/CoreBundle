@@ -2,9 +2,9 @@
 
 namespace MedBrief\CoreBundle\Twig;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-
 use Symfony\Component\Intl\Intl;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 /**
  * Class MedBriefUrlizeExtension
@@ -14,31 +14,26 @@ use Symfony\Component\Intl\Intl;
  *
  * @package MedBrief\CoreBundle\Twig
  */
-class MedBriefCountryNameExtension extends \Twig_Extension
+class MedBriefCountryNameExtension extends AbstractExtension
 {
 
     public function getFilters()
     {
         return array(
             
-            new \Twig_SimpleFilter('countryName', array($this, 'countryNameFilter')),
+            new TwigFilter('countryName', array($this, 'countryNameFilter')),
         );
     }
 
     /**
-     * a custom filter called urlize which replaces URLs in plan text
+     * a custom filter called urlize which replaces URLs in plain text
      * with clickable links
      *
-     * @param $string
-     * @return mixed
+     * @param string $countryCode
+     *
+     * @return null | string
      */
     public function countryNameFilter($countryCode){
         return Intl::getRegionBundle()->getCountryName($countryCode);
-    }
-
-
-    public function getName()
-    {
-        return 'mb_country_name_extension';
     }
 }

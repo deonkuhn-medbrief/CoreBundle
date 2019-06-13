@@ -1,15 +1,13 @@
 <?php
 
-// src/Acme/HelloBundle/Newsletter/NewsletterManager.php
+
 namespace MedBrief\CoreBundle\Sms;
 
-//use MedBrief\CoreBundle\Sms\Service\Config\SmsServiceInterface;
 use MedBrief\CoreBundle\Sms\Service\SmsServiceProvider;
 
 use MedBrief\CoreBundle\Entity\Sms as Message;
 use Doctrine\ORM\EntityManager;
 
-//class Scsms extends Service\Bulksms\Bulksms
 class Sms
 {
     const NUM_ITEMS_TO_PROCESS = 100;
@@ -17,21 +15,21 @@ class Sms
     /**
      * Service
      * 
-     * @var type 
+     * @var SmsServiceProvider
      */
     private $_service;
     
     /**
      * Debug
      * 
-     * @var type 
+     * @var boolean
      */
     private $_debug;
     
     /**
      * Entity manager
      * 
-     * @var type 
+     * @var EntityManager
      */
     private $_em;
 
@@ -39,8 +37,8 @@ class Sms
     /**
      * Init
      * 
-     * @param \Doctrine\ORM\EntityManager $em - required to manage sms related data
-     * @param \MedBrief\CoreBundle\Sms\Service\SmsServiceProvider $service - service to send sms with
+     * @param EntityManager $em - required to manage sms related data
+     * @param SmsServiceProvider $service - service to send sms with
      * @param bool $debug - debug flag
      * 
      * @return null
@@ -65,7 +63,7 @@ class Sms
     
     /**
      * 
-     * @param \Doctrine\ORM\EntityManager $em
+     * @param EntityManager $em
      */
     public function setEntityManager(EntityManager $em)
     {
@@ -76,7 +74,7 @@ class Sms
      * Sms service to use when sending sms.
      * No service is needed when pushing smses to the sms-queue
      * 
-     * @param \MedBrief\CoreBundle\Sms\Service\Config\SmsServiceInterface $service
+     * @param SmsServiceProvider $service
      */
     public function setServiceProvider(SmsServiceProvider $service)
     {
@@ -85,8 +83,9 @@ class Sms
     
     /**
      * Get sms service being used
-     * 
-     * @return type
+     *
+     * @throws \Exception
+     * @return SmsServiceProvider
      */
     public function getServiceProvider()
     {
@@ -101,7 +100,8 @@ class Sms
      * Send SMS
      * 
      * @param \MedBrief\CoreBundle\Entity\Sms $sms
-     * 
+     *
+     * @throws
      * @return \MedBrief\CoreBundle\Entity\Sms
      */
     public function send(Message $sms)
@@ -167,11 +167,12 @@ class Sms
     /**
      * This function is used to send adhoc SMS messages
      * 
-     * @param String $msisdn
-     * @param String $message
-     * @param Bool   $throwExceptions
-     * 
-     * @return BulkSMS result
+     * @param string $cellNumber
+     * @param string $message
+     * @param boolean   $throwExceptions
+     *
+     * @throws \Exception
+     * @return Message result
      */
     
     public function sendAdhoc($cellNumber, $message, $throwExceptions = false)
@@ -199,8 +200,12 @@ class Sms
     /**
      * Push sms to sms-queue
      * 
-     * @param type $msisdn
-     * @param type $message
+     * @param string $cellNumber
+     * @param string $message
+     * @param boolean $throwExceptions
+     *
+     * @throws \Exception
+     * @return Message
      */
     public function push($cellNumber, $message, $throwExceptions = false)
     {
@@ -242,6 +247,7 @@ class Sms
      * Process sms queue
      * 
      * @throws \Exception
+     * @return int
      */
     public function processQueue()
     {
@@ -299,7 +305,8 @@ class Sms
      * influence the mobile_number_canonical field on the User entity in
      * SMS Deals
      * 
-     * @param type $cellNumber
+     * @param string $cellNumber
+     *
      * @return string|boolean
      */
     public function validateCellNumber($cellNumber)

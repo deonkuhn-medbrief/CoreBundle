@@ -2,7 +2,8 @@
 
 namespace MedBrief\CoreBundle\Twig;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 /**
  * Class MedBriefUrlizeExtension
@@ -12,14 +13,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @package MedBrief\CoreBundle\Twig
  */
-class MedBriefUrlizeExtension extends \Twig_Extension
+class MedBriefUrlizeExtension extends AbstractExtension
 {
 
     public function getFilters()
     {
         return array(
             
-            new \Twig_SimpleFilter('urlize', array($this, 'urlizeFilter')),
+            new TwigFilter('urlize', array($this, 'urlizeFilter')),
         );
     }
 
@@ -53,11 +54,5 @@ class MedBriefUrlizeExtension extends \Twig_Extension
 
             $output = trim($output);
         return $output;
-    }
-
-
-    public function getName()
-    {
-        return 'mb_urlize_extension';
     }
 }

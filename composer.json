@@ -1,6 +1,6 @@
 {
     "name": "medbrief/core-bundle",
-    "description": "This is a Symfony Bundle compatible with Symfony 2.8+ which provides several features we consider core here at MedBrief. It has been forked from sideclick/core-bundle.",
+    "description": "This is a Symfony Bundle compatible with Symfony 3.4 which provides several features we consider core here at MedBrief. It has been forked from sideclick/core-bundle.",
     "type": "package",
     "require": {
         "php": ">=7.0",

@@ -2,6 +2,7 @@
 namespace MedBrief\CoreBundle\Entity\Helper;
 
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\DependencyInjection\Container;
 
 /**
  * Class Factory
@@ -12,13 +13,21 @@ use Doctrine\ORM\EntityManager;
  */
 class Factory
 {
+	/**
+	 * @var EntityManager
+	 */
     protected $_entityManager;
-    
+
+	/**
+	 * @var Container
+	 */
     protected $_container;
 
     /**
      * Constructor takes an Entity Manager that will be passed to the constructor of the Entity Helper
+     *
      * @param EntityManager $em
+     * @param Container $container
      */
     public function __construct(EntityManager $em, $container)
     {

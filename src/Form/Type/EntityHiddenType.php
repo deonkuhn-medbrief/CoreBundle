@@ -7,9 +7,9 @@ namespace MedBrief\CoreBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use MedBrief\CoreBundle\Form\DataTransformer\EntityToIdTransformer;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class EntityHiddenType extends AbstractType
@@ -40,11 +40,6 @@ class EntityHiddenType extends AbstractType
 
     public function getParent()
     {
-        return 'hidden';
-    }
-
-    public function getName()
-    {
-        return 'entity_hidden';
+        return HiddenType::class;
     }
 }

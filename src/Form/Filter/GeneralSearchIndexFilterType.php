@@ -6,7 +6,6 @@ use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\TextFilterType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 
 use Lexik\Bundle\FormFilterBundle\Filter\FilterOperands;
@@ -23,16 +22,11 @@ class GeneralSearchIndexFilterType extends AbstractType
         $builder->add('search_index', TextFilterType::class,
             array(
                 // Making this filter perform a like '%term%' search
-                'condition_pattern' => FilterOperands::STRING_BOTH,
+                'condition_pattern' => FilterOperands::STRING_CONTAINS,
                 
                 'label' => 'Search'
             )
         );
-    }
-
-    public function getName()
-    {
-        return 'mb_core_form_filter_general_search_index_filter';
     }
 
 

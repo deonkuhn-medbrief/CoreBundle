@@ -2,7 +2,10 @@
 
 namespace MedBrief\CoreBundle\Twig;
 
-class MedBriefExtension extends \Twig_Extension
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+
+class MedBriefExtension extends AbstractExtension
 {
     protected $vichHelper;
     
@@ -15,7 +18,7 @@ class MedBriefExtension extends \Twig_Extension
     {
         return array(
             
-            new \Twig_SimpleFilter('mb_localize_image', array($this, 'scLocalizeImage')),
+            new TwigFilter('mb_localize_image', array($this, 'scLocalizeImage')),
         );
     }
 
@@ -25,7 +28,7 @@ class MedBriefExtension extends \Twig_Extension
      * 
      * @param type $path
      * @param type $entity
-     * @param type $field
+     * @param string $field
      * @return string
      */
     public function scLocalizeImage($path, $entity, $field = 'image')
@@ -79,10 +82,5 @@ class MedBriefExtension extends \Twig_Extension
         
         //placeholder
         return '/data/downloads/memory-sample-2.jpg';
-    }
-
-    public function getName()
-    {
-        return 'mb_extension';
     }
 }

@@ -17,6 +17,7 @@ class PanaceaSmsController extends Controller
      * http://www.panaceamobile.com/documentation/forwarding-sms-to-apps/
      * 
      * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return Response
      */
     public function processIncomingSmsAction(Request $request)
     {

@@ -12,9 +12,9 @@ use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
  * https://gist.github.com/xanf/1015146
  * 
  * @todo This class makes no distinction between a user not being logged in VS
- * being logged in and actually not having access to the URL.  This disctinction
- * should probably be made so that we don't reload the page on the JS side when
- * we should actually just be returning a forbidden response?
+ *       being logged in and actually not having access to the URL.  This distinction
+ *       should probably be made so that we don't reload the page on the JS side when
+ *       we should actually just be returning a forbidden response?
  * 
  */
 class AjaxAuthenticationListener

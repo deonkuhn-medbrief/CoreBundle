@@ -19,7 +19,7 @@ class PanaceaMobile extends SmsServiceProvider
     /**
      * Get name of service
      * 
-     * @return type
+     * @return string
      */
     public function getName()
     {
@@ -29,10 +29,11 @@ class PanaceaMobile extends SmsServiceProvider
     /**
      * Send the sms using panacea mobile
      * 
-     * @param type $message
-     * @param type $msisdn
-     * 
-     * @return type
+     * @param string $message
+     * @param string $msisdn
+     *
+     * @throws \Exception
+     * @return object
      */
     public function send($message, $msisdn)
     {

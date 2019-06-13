@@ -5,6 +5,7 @@ namespace MedBrief\CoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -44,7 +45,7 @@ class DefaultController extends Controller
      * instruction back to our modal ajax handler, otherwise it will just
      * perform a PHP redirect back to the current url.
      * 
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     * @return \Symfony\Component\HttpFoundation\JsonResponse | RedirectResponse
      */
     public function reloadWithAjaxSupport(Request $request)
     {

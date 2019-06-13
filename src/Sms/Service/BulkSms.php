@@ -11,7 +11,7 @@ class BulkSms extends SmsServiceProvider
     /**
      * Get name of service
      * 
-     * @return type
+     * @return string
      */
     public function getName()
     {
@@ -21,10 +21,11 @@ class BulkSms extends SmsServiceProvider
     /**
      * Send the sms using bulksms
      * 
-     * @param type $message - message
-     * @param type $msisdn - cell number
-     * 
-     * @return type
+     * @param string $message - message
+     * @param string $msisdn - cell number
+     *
+     * @throws \Exception
+     * @return object
      */
     public function send($message, $msisdn)
     {
@@ -56,7 +57,7 @@ class BulkSms extends SmsServiceProvider
             $response['credits'] = $this->getCredits();
             $response['message'] = $result['details'];
             
-            //return reponse as stdClass
+            //return response as stdClass
             return (object)$response;
         }
         

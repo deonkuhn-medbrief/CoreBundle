@@ -9,13 +9,20 @@ use MedBrief\CoreBundle\Entity\GeonamesPlace;
 
 class GeonamesEntityService
 {
+	/**
+	 * @var GeonamesApiService
+	 */
     private $apiService;
+
+	/**
+	 * @var EntityManager
+	 */
     private $em;
     
     /**
      * 
      * @param \Doctrine\ORM\EntityManager $em
-     * @param type $container
+     * @param GeonamesApiService $apiService
      */
     public function __construct(EntityManager $em, GeonamesApiService $apiService)
     {

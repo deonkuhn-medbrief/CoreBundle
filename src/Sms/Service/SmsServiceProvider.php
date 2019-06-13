@@ -26,7 +26,7 @@ abstract class SmsServiceProvider
     
     /**
      *
-     * @var type 
+     * @var boolean
      */
     protected $_debug;
     
@@ -40,7 +40,7 @@ abstract class SmsServiceProvider
     /**
      * Init Service
      * 
-     * @param type $entityManager - required to manage sms-service related data
+     * @param EntityManager $entityManager - required to manage sms-service related data
      * 
      * @param type $username - service username
      * @param type $password - service password
@@ -77,7 +77,7 @@ abstract class SmsServiceProvider
     /**
      * Set debug to true or false
      * 
-     * @param type $status
+     * @param boolean $status
      */
     public function setDebug($status) {
         
@@ -179,17 +179,17 @@ abstract class SmsServiceProvider
     /**
      * Get name of service
      * 
-     * @return type
+     * @return string
      */
     abstract public function getName();
 
     /**
      * Send an SMS using this service
      * 
-     * @param type $message - message
-     * @param type $msisdn - cell number
+     * @param string $message - message
+     * @param string $msisdn - cell number
      * 
-     * @return type
+     * @return object
      */
     abstract public function send($message, $msisdn);
 }

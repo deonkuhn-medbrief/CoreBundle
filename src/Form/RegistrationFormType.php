@@ -20,9 +20,4 @@ class RegistrationFormType extends BaseType
             ->add('last_name')
             ->remove('username');
     }
-
-    public function getName()
-    {
-        return 'mb_core_user_registration';
-    }
 }

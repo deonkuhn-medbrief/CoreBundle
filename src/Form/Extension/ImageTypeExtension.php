@@ -3,11 +3,11 @@
 namespace MedBrief\CoreBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccess;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * This Extension allows us to enhance File Form field types to display
@@ -24,7 +24,7 @@ class ImageTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'file';
+        return FileType::class;
     }
     
     /**

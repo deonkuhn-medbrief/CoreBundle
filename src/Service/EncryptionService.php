@@ -1,13 +1,20 @@
 <?php
 namespace MedBrief\CoreBundle\Service;
 
+use Symfony\Component\DependencyInjection\Container;
+
 /**
  * Description of Encryption
+ * @todo Maybe we should just get rid of this altogether? It
+ *       doesn't look finished anyway plus it uses mcrypt
  *
  * @author rowan
  */
 class EncryptionService {
-    
+
+	/**
+	 * @var Container
+	 */
     protected $container;
     
     protected $iv;
@@ -36,14 +43,20 @@ class EncryptionService {
         return rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $secretKey, hex2bin(rawurldecode($encryptedString)), MCRYPT_MODE_ECB));
         
     }
-    
+
+	/**
+	 * @throws \Exception
+	 * @return string
+	 */
     protected function getSecretKey()
     {
         $secretKey = $this->container->getParameter('secret');
         
         if (empty($secretKey)) {
             
-            throw new Exception("Attempting to use 'secret' parameter, but it is empty.  Are you sure your 'secret' parameter is set in your parameters.yml?");
+            throw new \Exception("Attempting to use 'secret' parameter, but it is empty.  Are you sure your 'secret' parameter is set in your parameters.yml?");
         }
+
+        return $secretKey;
     }
 }
