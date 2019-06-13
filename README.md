@@ -1,12 +1,12 @@
-# Sideclick CoreBundle
-This is a Symfony Bundle compatible with Symfony 2.6+ which provides several features which are commonly required in Symfony projects.
+# MedBrief CoreBundle
+This is a Symfony Bundle compatible with Symfony 2.8+ which provides several features which are commonly required in Symfony projects.
 
 ## Installation
 
 ### Step 1: Add the following to the "require" section of composer.json
 
 ```
-"sideclick/core-bundle": "dev-master"
+"medbrief/core-bundle": "dev-master"
 ```
 
 ### Step 2: Enable the bundle
@@ -21,7 +21,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Sideclick\CoreBundle\SideclickCoreBundle(),
+        new MedBrief\CoreBundle\SideclickCoreBundle(),
     );
 }
 ```
