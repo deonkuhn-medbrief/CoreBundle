@@ -1,6 +1,6 @@
 <?php
 
-namespace Sideclick\CoreBundle\Entity;
+namespace MedBrief\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

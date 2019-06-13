@@ -1,39 +1,39 @@
 parameters:
-#    sc_core.example.class: Sideclick\CoreBundle\Example
-  sc_core.sms.services.bulksms.username : 'rowanreid'
-  sc_core.sms.services.bulksms.password : 'shizer'
-  sc_core.sms.services.bulksms.debug : false
-  sc_core.sms.services.panacea_mobile.username : 'shauntherun'
-  sc_core.sms.services.panacea_mobile.password : 'shaun001'
-  sc_core.sms.services.panacea_mobile.debug : false
+#    mb_core.example.class: MedBrief\CoreBundle\Example
+  mb_core.sms.services.bulksms.username : 'rowanreid'
+  mb_core.sms.services.bulksms.password : 'shizer'
+  mb_core.sms.services.bulksms.debug : false
+  mb_core.sms.services.panacea_mobile.username : 'shauntherun'
+  mb_core.sms.services.panacea_mobile.password : 'shaun001'
+  mb_core.sms.services.panacea_mobile.debug : false
 
 services:
-#    sc_core.example:
-#        class: %sc_core.example.class%
+#    mb_core.example:
+#        class: %mb_core.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
 
     # This is part of the solution for the custom form field type 'entity_hidden'.
     # From here: https://gist.github.com/bjo3rnf/4061232
-    sc.type.entity_hidden:
-       class: Sideclick\CoreBundle\Form\Type\EntityHiddenType
+    mb.type.entity_hidden:
+       class: MedBrief\CoreBundle\Form\Type\EntityHiddenType
        arguments: ["@doctrine.orm.entity_manager"]
        tags:
        - { name: form.type, alias: entity_hidden }
 
     my_user_provider:
-        class: Sideclick\CoreBundle\Security\FOSUBUserProvider
+        class: MedBrief\CoreBundle\Security\FOSUBUserProvider
         arguments: ['@fos_user.user_manager',{dropbox: dropbox_id, twitter: twitter_id, facebook: facebook_id}]
 
     # This service provides our custom registration form so that we can
     # override the regular FOSUserBundle registration form
-    sc_core.user_registration.form.type:
-        class: Sideclick\CoreBundle\Form\RegistrationFormType
+    mb_core.user_registration.form.type:
+        class: MedBrief\CoreBundle\Form\RegistrationFormType
         arguments: ['%fos_user.model.user.class%']
         tags:
-        - { name: form.type, alias: sc_core_user_registration }
+        - { name: form.type, alias: mb_core_user_registration }
 
-    sc_core.twig.sc_extension:
-        class: Sideclick\CoreBundle\Twig\SideclickExtension
+    mb_core.twig.mb_extension:
+        class: MedBrief\CoreBundle\Twig\MedBriefExtension
         arguments: ['@vich_uploader.templating.helper.uploader_helper']
         tags:
             - { name: twig.extension }
@@ -45,97 +45,97 @@ services:
            - { name: twig.extension }
 
     # Register the get_entity_helper() custom twig function
-    sc_core.twig.sc_entity_helper_extension:
-        class: Sideclick\CoreBundle\Twig\SideclickEntityHelperExtension
+    mb_core.twig.mb_entity_helper_extension:
+        class: MedBrief\CoreBundle\Twig\MedBriefEntityHelperExtension
         arguments: ['@service_container']
         tags:
             - { name: twig.extension }
 
-    sc_core.twig.sc_urlize_extension:
-          class: Sideclick\CoreBundle\Twig\SideclickUrlizeExtension
+    mb_core.twig.mb_urlize_extension:
+          class: MedBrief\CoreBundle\Twig\MedBriefUrlizeExtension
           tags:
               - { name: twig.extension }
 
     # Enabling out extension that provides the countryName filter
-    sc_core.twig.sc_country_name_extension:
-          class: Sideclick\CoreBundle\Twig\SideclickCountryNameExtension
+    mb_core.twig.mb_country_name_extension:
+          class: MedBrief\CoreBundle\Twig\MedBriefCountryNameExtension
           tags:
               - { name: twig.extension }
 
     # Make the Entity Helper Factory available as a service so that we may easily get Entity Helper classes
     # for any Entity
-    sc_core.entity_helper_factory:
-        class: Sideclick\CoreBundle\Entity\Helper\Factory
+    mb_core.entity_helper_factory:
+        class: MedBrief\CoreBundle\Entity\Helper\Factory
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]
 
     #sms
-    sc_core.sms.cron:
-        class:        Sideclick\CoreBundle\Sms\Sms
+    mb_core.sms.cron:
+        class:        MedBrief\CoreBundle\Sms\Sms
         arguments:    ['@doctrine.orm.entity_manager']
 
     #available sms services
-    sc_core.sms.services.bulksms:
-        class:        Sideclick\CoreBundle\Sms\Service\BulkSms
+    mb_core.sms.services.bulksms:
+        class:        MedBrief\CoreBundle\Sms\Service\BulkSms
         arguments:
             - '@doctrine.orm.entity_manager'
-            - "%sc_core.sms.services.bulksms.username%"
-            - "%sc_core.sms.services.bulksms.password%"
-            - "%sc_core.sms.services.bulksms.debug%"
+            - "%mb_core.sms.services.bulksms.username%"
+            - "%mb_core.sms.services.bulksms.password%"
+            - "%mb_core.sms.services.bulksms.debug%"
 
-    sc_core.sms.services.panacea_mobile:
-        class:        Sideclick\CoreBundle\Sms\Service\PanaceaMobile
+    mb_core.sms.services.panacea_mobile:
+        class:        MedBrief\CoreBundle\Sms\Service\PanaceaMobile
         arguments:
             - '@doctrine.orm.entity_manager'
-            - "%sc_core.sms.services.panacea_mobile.username%"
-            - "%sc_core.sms.services.panacea_mobile.password%"
-            - "%sc_core.sms.services.panacea_mobile.debug%"
+            - "%mb_core.sms.services.panacea_mobile.username%"
+            - "%mb_core.sms.services.panacea_mobile.password%"
+            - "%mb_core.sms.services.panacea_mobile.debug%"
 
 
     #Make our Wikipedia service available
-    sc_core.wikipedia:
-        class:        Sideclick\CoreBundle\Service\WikipediaService
+    mb_core.wikipedia:
+        class:        MedBrief\CoreBundle\Service\WikipediaService
         arguments:    ['@doctrine.orm.entity_manager']
 
     #Make our Specialized image form field type available
-    sc_core.image_type_extension:
-          class: Sideclick\CoreBundle\Form\Extension\ImageTypeExtension
+    mb_core.image_type_extension:
+          class: MedBrief\CoreBundle\Form\Extension\ImageTypeExtension
           tags:
               - { name: form.type_extension, alias: file }
 
     #Make our Geonames api service available
-    sc_core.geonames_api_service:
-        class:        Sideclick\CoreBundle\Service\GeonamesApiService
+    mb_core.geonames_api_service:
+        class:        MedBrief\CoreBundle\Service\GeonamesApiService
         arguments:    ~
 
     #Make our Geonames Entity service available
-    sc_core.geonames_entity_service:
-        class:        Sideclick\CoreBundle\Service\GeonamesEntityService
-        arguments:    ['@doctrine.orm.entity_manager', '@sc_core.geonames_api_service']
+    mb_core.geonames_entity_service:
+        class:        MedBrief\CoreBundle\Service\GeonamesEntityService
+        arguments:    ['@doctrine.orm.entity_manager', '@mb_core.geonames_api_service']
 
     # Initialise our Authentication listener which will ensure a Forbidden response
     # is returned when an ajax call is made and the user is no longer logged in
     # Courtesy of https://gist.github.com/xanf/1015146
-    sc_core.ajax.authentication_listener:
-          class: Sideclick\CoreBundle\Component\Event\AjaxAuthenticationListener
+    mb_core.ajax.authentication_listener:
+          class: MedBrief\CoreBundle\Component\Event\AjaxAuthenticationListener
           tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onCoreException, priority: 1000 }
 
     # Register our EncryptionService class as a service
-    sc_core.encryption_service:
-        class: Sideclick\CoreBundle\Service\EncryptionService
+    mb_core.encryption_service:
+        class: MedBrief\CoreBundle\Service\EncryptionService
         arguments: ['@service_container']
       
     # For logging errors in console commands, as per http://symfony.com/doc/current/cookbook/console/logging.html
-    sc_core.kernel.listener.command_dispatch:
-        class: Sideclick\CoreBundle\EventListener\ConsoleExceptionListener
+    mb_core.kernel.listener.command_dispatch:
+        class: MedBrief\CoreBundle\EventListener\ConsoleExceptionListener
         arguments:
             logger: "@logger"
         tags:
             - { name: kernel.event_listener, event: console.exception }
             
     # For logging errors in console commands, as per http://symfony.com/doc/current/cookbook/console/logging.html
-    sc_core.kernel.listener.command_dispatch:
-        class: Sideclick\CoreBundle\EventListener\ErrorLoggerListener
+    mb_core.kernel.listener.command_dispatch:
+        class: MedBrief\CoreBundle\EventListener\ErrorLoggerListener
         arguments:
             logger: "@logger"
         tags:

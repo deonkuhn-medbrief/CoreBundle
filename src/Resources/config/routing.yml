@@ -1,3 +1,3 @@
-sc_core_panacea_incoming_sms:
+mb_core_panacea_incoming_sms:
     path:  /panacea-incoming-sms
-    defaults: { _controller: SideclickCoreBundle:PanaceaSms:processIncomingSms }
+    defaults: { _controller: MedBriefCoreBundle:PanaceaSms:processIncomingSms }

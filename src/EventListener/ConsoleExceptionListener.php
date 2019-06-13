@@ -5,7 +5,7 @@
  * 
  */
 
-namespace Sideclick\CoreBundle\EventListener;
+namespace MedBrief\CoreBundle\EventListener;
 
 use Symfony\Component\Console\Event\ConsoleExceptionEvent;
 use Psr\Log\LoggerInterface;

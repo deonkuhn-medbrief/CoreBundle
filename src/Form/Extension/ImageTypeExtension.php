@@ -1,6 +1,6 @@
 <?php
 // This class implemented as per: http://symfony.com/doc/current/cookbook/form/create_form_type_extension.html#override-the-file-widget-template-fragment
-namespace Sideclick\CoreBundle\Form\Extension;
+namespace MedBrief\CoreBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormView;
@@ -56,7 +56,7 @@ class ImageTypeExtension extends AbstractTypeExtension
             $parentData = $form->getParent()->getData();
             
             // send the data we need to the view (to see these in action, check out
-            // SideclickCoreBundle:Form:fields.html.twig for our overridden file_widget
+            // MedBriefCoreBundle:Form:fields.html.twig for our overridden file_widget
             $view->vars['image_attribute'] = $options['image_attribute'];
             $view->vars['parent_data'] = $parentData;
             

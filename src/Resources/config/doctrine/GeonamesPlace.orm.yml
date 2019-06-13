@@ -1,4 +1,4 @@
-Sideclick\CoreBundle\Entity\GeonamesPlace:
+MedBrief\CoreBundle\Entity\GeonamesPlace:
     type: entity
     table: geonames_place
     id:

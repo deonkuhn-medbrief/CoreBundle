@@ -2,7 +2,7 @@
 /**
  * This class is intended to be a SDK for the Geonames API service
  */
-namespace Sideclick\CoreBundle\Service;
+namespace MedBrief\CoreBundle\Service;
 
 class GeonamesApiService
 {
@@ -15,7 +15,7 @@ class GeonamesApiService
      */
     public function __construct()
     {
-        $this->username = 'sideclick'; // hard coding the username for now
+        $this->username = 'MedBrief'; // hard coding the username for now
     }
     
     /**
@@ -101,7 +101,7 @@ class GeonamesApiService
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'MyBot/1.0 (http://www.sideclick.co.za/)');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'MyBot/1.0 (http://www.MedBrief.co.za/)');
 
         $result = curl_exec($ch);
 

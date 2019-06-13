@@ -15,7 +15,7 @@ imports:
 #twig:
 #    form:
 #        resources:
-#            - 'SideclickCoreBundle:Form:fields.html.twig'
+#            - 'MedBriefCoreBundle:Form:fields.html.twig'
  
 # Rowan: Lets not presume that the Liip Imagine Bundle is installed           
 #liip_imagine:

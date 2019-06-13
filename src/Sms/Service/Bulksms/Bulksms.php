@@ -1,5 +1,5 @@
 <?php
-namespace Sideclick\CoreBundle\Sms\Service\Bulksms;
+namespace MedBrief\CoreBundle\Sms\Service\Bulksms;
 
 class Bulksms
 {

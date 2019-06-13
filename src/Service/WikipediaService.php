@@ -1,9 +1,9 @@
 <?php
 
-namespace Sideclick\CoreBundle\Service;
+namespace MedBrief\CoreBundle\Service;
 
 use Doctrine\ORM\EntityManager;
-use Sideclick\CoreBundle\Entity\WikipediaPage;
+use MedBrief\CoreBundle\Entity\WikipediaPage;
 
 class WikipediaService
 {
@@ -33,7 +33,7 @@ class WikipediaService
     {
         // try and find a matching page locally and return
         $possiblePage = $this->em
-            ->getRepository('SideclickCoreBundle:WikipediaPage')
+            ->getRepository('MedBriefCoreBundle:WikipediaPage')
             ->findOneByTitle($title);
         
         if ($possiblePage) {
@@ -49,7 +49,7 @@ class WikipediaService
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'MyBot/1.0 (http://www.sideclick.co.za/)');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'MyBot/1.0 (http://www.MedBrief.co.za/)');
 
         $result = curl_exec($ch);
 
@@ -93,7 +93,7 @@ class WikipediaService
      * Checks if the Wikipedia page has valid content, returns the page if it
      * does and false if it doesnt
      * 
-     * @param \Sideclick\CoreBundle\Entity\WikipediaPage $page
+     * @param \MedBrief\CoreBundle\Entity\WikipediaPage $page
      * @return boolean
      */
     protected function _returnPageIfValid(WikipediaPage $page)

@@ -1,7 +1,7 @@
 <?php
-namespace Sideclick\CoreBundle\Sms\Service;
+namespace MedBrief\CoreBundle\Sms\Service;
 
-use Sideclick\CoreBundle\Entity\AppVariable;
+use MedBrief\CoreBundle\Entity\AppVariable;
 use Doctrine\ORM\EntityManager;
 
 abstract class SmsServiceProvider
@@ -54,7 +54,7 @@ abstract class SmsServiceProvider
         $this->_debug = $debug;
         
         //get this service's credit app variable
-        $this->_entity = $entityManager->getRepository('SideclickCoreBundle:AppVariable')
+        $this->_entity = $entityManager->getRepository('MedBriefCoreBundle:AppVariable')
             ->findOneByName($this->getName());
         
         //if the app variable doesnt exist, create it
@@ -87,7 +87,7 @@ abstract class SmsServiceProvider
     /**
      * Create a app-variable to store avaible credit for this sms service
      * 
-     * @return \Sideclick\CoreBundle\Entity\AppVariable
+     * @return \MedBrief\CoreBundle\Entity\AppVariable
      */
     private function _createAppVariable()
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Sideclick\CoreBundle\Twig;
+namespace MedBrief\CoreBundle\Twig;
 
-class SideclickExtension extends \Twig_Extension
+class MedBriefExtension extends \Twig_Extension
 {
     protected $vichHelper;
     
@@ -15,7 +15,7 @@ class SideclickExtension extends \Twig_Extension
     {
         return array(
             
-            new \Twig_SimpleFilter('sc_localize_image', array($this, 'scLocalizeImage')),
+            new \Twig_SimpleFilter('mb_localize_image', array($this, 'scLocalizeImage')),
         );
     }
 
@@ -83,6 +83,6 @@ class SideclickExtension extends \Twig_Extension
 
     public function getName()
     {
-        return 'sc_extension';
+        return 'mb_extension';
     }
 }

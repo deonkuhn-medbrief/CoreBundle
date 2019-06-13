@@ -1,6 +1,6 @@
 <?php
 
-namespace Sideclick\CoreBundle\Form\Filter;
+namespace MedBrief\CoreBundle\Form\Filter;
 
 use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\TextFilterType;
 use Symfony\Component\Form\AbstractType;
@@ -32,7 +32,7 @@ class GeneralSearchIndexFilterType extends AbstractType
 
     public function getName()
     {
-        return 'sc_core_form_filter_general_search_index_filter';
+        return 'mb_core_form_filter_general_search_index_filter';
     }
 
 

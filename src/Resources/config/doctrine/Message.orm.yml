@@ -1,4 +1,4 @@
-Sideclick\CoreBundle\Entity\Message:
+MedBrief\CoreBundle\Entity\Message:
     table: fos_message
     type: entity
     id:

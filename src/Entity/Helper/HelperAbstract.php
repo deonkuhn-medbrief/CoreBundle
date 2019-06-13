@@ -1,5 +1,5 @@
 <?php
-namespace Sideclick\CoreBundle\Entity\Helper;
+namespace MedBrief\CoreBundle\Entity\Helper;
 
 use Doctrine\ORM\EntityManager;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManager;
  *
  * All Entity Helper classes should extend this class and implement a setter method named set{EntityName}
  *
- * @package Sideclick\CoreBundle\Entity\Helper
+ * @package MedBrief\CoreBundle\Entity\Helper
  */
 abstract class HelperAbstract
 {

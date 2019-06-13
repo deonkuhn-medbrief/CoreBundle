@@ -1,6 +1,6 @@
 <?php
 
-namespace Sideclick\CoreBundle\Command;
+namespace MedBrief\CoreBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Sideclick\CoreBundle\Sms\Sms;
+use MedBrief\CoreBundle\Sms\Sms;
 
 class SmsCommand extends ContainerAwareCommand
 {
@@ -40,7 +40,7 @@ class SmsCommand extends ContainerAwareCommand
             
             //replace dashes with _scores
             $name = str_replace('-', '_', $name);
-            $service = $this->getContainer()->get("sc_core.sms.services.$name");
+            $service = $this->getContainer()->get("mb_core.sms.services.$name");
             
         } catch (Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException $ex) {
 
@@ -98,7 +98,7 @@ class SmsCommand extends ContainerAwareCommand
             case 'process-sms-queue':
                 
                 //get our sms cron 
-                $sms = $this->getContainer()->get('sc_core.sms.cron');
+                $sms = $this->getContainer()->get('mb_core.sms.cron');
                 
                 //set the service provider
                 $sms->setServiceProvider($smsService);

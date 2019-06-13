@@ -1,4 +1,4 @@
-Sideclick\CoreBundle\Entity\ThreadMetadata:
+MedBrief\CoreBundle\Entity\ThreadMetadata:
     table: fos_threadmetadata
     type: entity
     id:

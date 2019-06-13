@@ -1,4 +1,4 @@
-Sideclick\CoreBundle\Entity\User:
+MedBrief\CoreBundle\Entity\User:
     type: mappedSuperclass
     table: fos_user
     id:

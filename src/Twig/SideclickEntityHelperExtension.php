@@ -1,18 +1,18 @@
 <?php
 
-namespace Sideclick\CoreBundle\Twig;
+namespace MedBrief\CoreBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class SideclickEntityHelperExtension
+ * Class MedBriefEntityHelperExtension
  *
  * Registers a custom Twig function called get_entity_helper() which returns the Entity Helper object for the given
  * entity
  *
- * @package Sideclick\CoreBundle\Twig
+ * @package MedBrief\CoreBundle\Twig
  */
-class SideclickEntityHelperExtension extends \Twig_Extension
+class MedBriefEntityHelperExtension extends \Twig_Extension
 {
     protected $_serviceContainer;
     
@@ -36,12 +36,12 @@ class SideclickEntityHelperExtension extends \Twig_Extension
      * @return mixed
      */
     public function getEntityHelper($entity){
-        return $this->_serviceContainer->get('sc_core.entity_helper_factory')->getEntityHelper($entity);
+        return $this->_serviceContainer->get('mb_core.entity_helper_factory')->getEntityHelper($entity);
     }
 
 
     public function getName()
     {
-        return 'sc_entity_helper_extension';
+        return 'mb_entity_helper_extension';
     }
 }

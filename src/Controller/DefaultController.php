@@ -1,6 +1,6 @@
 <?php
 
-namespace Sideclick\CoreBundle\Controller;
+namespace MedBrief\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;

@@ -3,7 +3,7 @@
  * This form exists to overwrite the FOSUserBundle Registration form and remove
  * the 'username' field.
  */
-namespace Sideclick\CoreBundle\Form;
+namespace MedBrief\CoreBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
@@ -23,6 +23,6 @@ class RegistrationFormType extends BaseType
 
     public function getName()
     {
-        return 'sc_core_user_registration';
+        return 'mb_core_user_registration';
     }
 }

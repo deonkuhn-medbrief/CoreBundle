@@ -1,4 +1,4 @@
-Sideclick\CoreBundle\Entity\AppVariable:
+MedBrief\CoreBundle\Entity\AppVariable:
     type: entity
     table: app_variable
     id:

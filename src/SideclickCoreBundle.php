@@ -1,9 +1,9 @@
 <?php
 
-namespace Sideclick\CoreBundle;
+namespace MedBrief\CoreBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class SideclickCoreBundle extends Bundle
+class MedBriefCoreBundle extends Bundle
 {
 }

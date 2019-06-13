@@ -3,10 +3,10 @@
  * This is part of the solution for the custom form field type 'entity_hidden'.
  * From here: https://gist.github.com/bjo3rnf/4061232
  */
-namespace Sideclick\CoreBundle\Form\Type;
+namespace MedBrief\CoreBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use Sideclick\CoreBundle\Form\DataTransformer\EntityToIdTransformer;
+use MedBrief\CoreBundle\Form\DataTransformer\EntityToIdTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;

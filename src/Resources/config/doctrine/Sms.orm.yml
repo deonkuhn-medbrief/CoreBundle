@@ -1,4 +1,4 @@
-Sideclick\CoreBundle\Entity\Sms:
+MedBrief\CoreBundle\Entity\Sms:
     type: entity
     table: sms
     id:

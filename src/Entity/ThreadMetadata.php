@@ -1,7 +1,7 @@
 <?php
 // src/Acme/MessageBundle/Entity/ThreadMetadata.php
 
-namespace Sideclick\CoreBundle\Entity;
+namespace MedBrief\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\MessageBundle\Entity\ThreadMetadata as BaseThreadMetadata;
@@ -20,7 +20,7 @@ class ThreadMetadata extends BaseThreadMetadata
 
     /**
      * @ORM\ManyToOne(
-     *   targetEntity="Sideclick\CoreBundle\Entity\Thread",
+     *   targetEntity="MedBrief\CoreBundle\Entity\Thread",
      *   inversedBy="metadata"
      * )
      * @var ThreadInterface
@@ -28,7 +28,7 @@ class ThreadMetadata extends BaseThreadMetadata
     protected $thread;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Sideclick\CoreBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="MedBrief\CoreBundle\Entity\User")
      * @var ParticipantInterface
      */
     protected $participant;

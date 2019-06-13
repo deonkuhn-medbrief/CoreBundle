@@ -1,4 +1,4 @@
-Sideclick\CoreBundle\Entity\Thread:
+MedBrief\CoreBundle\Entity\Thread:
     table: fos_thread
     type: entity
     id:

@@ -1,8 +1,8 @@
 <?php
-namespace Sideclick\CoreBundle\Sms\Service;
+namespace MedBrief\CoreBundle\Sms\Service;
 
-use Sideclick\CoreBundle\Sms\Service\SmsServiceProvider;
-use Sideclick\CoreBundle\Sms\Service\PanaceaMobile\PanaceaMobile as Service;
+use MedBrief\CoreBundle\Sms\Service\SmsServiceProvider;
+use MedBrief\CoreBundle\Sms\Service\PanaceaMobile\PanaceaMobile as Service;
 
 class PanaceaMobile extends SmsServiceProvider
 {

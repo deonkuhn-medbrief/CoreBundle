@@ -1,5 +1,5 @@
 <?php
-namespace Sideclick\CoreBundle\Service;
+namespace MedBrief\CoreBundle\Service;
 
 use Knp\Component\Pager\Paginator;
 

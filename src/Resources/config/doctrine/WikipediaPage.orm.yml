@@ -1,4 +1,4 @@
-Sideclick\CoreBundle\Entity\WikipediaPage:
+MedBrief\CoreBundle\Entity\WikipediaPage:
     type: entity
     table: wikipedia_page
     id:

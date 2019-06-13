@@ -4,7 +4,7 @@
  * http://symfony.com/doc/current/cookbook/console/logging.html
  * 
  */
-namespace Sideclick\CoreBundle\EventListener;
+namespace MedBrief\CoreBundle\EventListener;
 
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 use Psr\Log\LoggerInterface;

@@ -1,5 +1,5 @@
 <?php
-namespace Sideclick\CoreBundle\Security;
+namespace MedBrief\CoreBundle\Security;
  
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use Symfony\Component\Security\Core\User\UserInterface;

@@ -2,10 +2,10 @@
 /**
  * This class is intended to be a SDK for the Geonames API service
  */
-namespace Sideclick\CoreBundle\Service;
+namespace MedBrief\CoreBundle\Service;
 
 use Doctrine\ORM\EntityManager;
-use Sideclick\CoreBundle\Entity\GeonamesPlace;
+use MedBrief\CoreBundle\Entity\GeonamesPlace;
 
 class GeonamesEntityService
 {
@@ -50,7 +50,7 @@ class GeonamesEntityService
             
             // check if this city is already in our DB
             $matchingPlace = $this->em
-                ->getRepository('SideclickCoreBundle:GeonamesPlace')
+                ->getRepository('MedBriefCoreBundle:GeonamesPlace')
                 ->findOneByGeonameId($geonamesArray['geonames'][0]['geonameId']);
             
             // if it is then return it

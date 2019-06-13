@@ -1,12 +1,12 @@
 <?php
-namespace Sideclick\CoreBundle\Controller;
+namespace MedBrief\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-use Sideclick\CoreBundle\Entity\IncomingPanaceaSms;
+use MedBrief\CoreBundle\Entity\IncomingPanaceaSms;
 
 class PanaceaSmsController extends Controller
 {

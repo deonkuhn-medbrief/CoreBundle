@@ -1,20 +1,20 @@
 <?php
 
-namespace Sideclick\CoreBundle\Twig;
+namespace MedBrief\CoreBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Symfony\Component\Intl\Intl;
 
 /**
- * Class SideclickUrlizeExtension
+ * Class MedBriefUrlizeExtension
  *
  * Registers a custom filter called urlize which replaces URLs in plan text
  * with clickable links
  *
- * @package Sideclick\CoreBundle\Twig
+ * @package MedBrief\CoreBundle\Twig
  */
-class SideclickCountryNameExtension extends \Twig_Extension
+class MedBriefCountryNameExtension extends \Twig_Extension
 {
 
     public function getFilters()
@@ -39,6 +39,6 @@ class SideclickCountryNameExtension extends \Twig_Extension
 
     public function getName()
     {
-        return 'sc_country_name_extension';
+        return 'mb_country_name_extension';
     }
 }

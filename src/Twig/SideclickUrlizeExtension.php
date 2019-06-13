@@ -1,18 +1,18 @@
 <?php
 
-namespace Sideclick\CoreBundle\Twig;
+namespace MedBrief\CoreBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class SideclickUrlizeExtension
+ * Class MedBriefUrlizeExtension
  *
  * Registers a custom filter called urlize which replaces URLs in plan text
  * with clickable links
  *
- * @package Sideclick\CoreBundle\Twig
+ * @package MedBrief\CoreBundle\Twig
  */
-class SideclickUrlizeExtension extends \Twig_Extension
+class MedBriefUrlizeExtension extends \Twig_Extension
 {
 
     public function getFilters()
@@ -58,6 +58,6 @@ class SideclickUrlizeExtension extends \Twig_Extension
 
     public function getName()
     {
-        return 'sc_urlize_extension';
+        return 'mb_urlize_extension';
     }
 }

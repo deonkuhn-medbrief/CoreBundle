@@ -1,5 +1,5 @@
 <?php
-namespace Sideclick\CoreBundle\Component\Event;
+namespace MedBrief\CoreBundle\Component\Event;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
