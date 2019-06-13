@@ -2,27 +2,28 @@
 
 namespace MedBrief\CoreBundle\Command;
 
+use MedBrief\CoreBundle\Sms\Service\SmsServiceProvider;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 use MedBrief\CoreBundle\Sms\Sms;
+use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 
 class SmsCommand extends ContainerAwareCommand
 {
 
     /**
-     * app/console sc-core-sms:run process-sms-queue [provider name]
+     * bin/console mb-core-sms:run process-sms-queue [provider name]
      * 
-     * @return null
+     * @return void
      */
     protected function configure() 
     {
         $this
-            ->setName('sc-core-sms:run')
-            ->setDescription('Sms processing')
+            ->setName('mb-core-sms:run')
+            ->setDescription('SMS processing')
             ->addArgument('action', InputArgument::REQUIRED, 'Name of action to run.')
             ->addArgument('provider', InputArgument::OPTIONAL, 'Name of service provider to use(bulksms|panacea-mobile).');
         ;
@@ -31,8 +32,8 @@ class SmsCommand extends ContainerAwareCommand
     /**
      * Get service provider
      * 
-     * @param type $name
-     * @return boolean
+     * @param string $name
+     * @return SmsServiceProvider | false
      */
     protected function _getServiceProvider($name)
     {
@@ -42,7 +43,7 @@ class SmsCommand extends ContainerAwareCommand
             $name = str_replace('-', '_', $name);
             $service = $this->getContainer()->get("mb_core.sms.services.$name");
             
-        } catch (Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException $ex) {
+        } catch (ServiceNotFoundException $ex) {
 
             $service = false;
         } catch (\Exception $ex){
@@ -55,18 +56,13 @@ class SmsCommand extends ContainerAwareCommand
 
     /**
      * 
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     *
+     * @throws \Exception
      */
     protected function execute(InputInterface $input, OutputInterface $output) 
     {
-        
-        //Twig's asset method throws an Exception without this fix
-        $this->getContainer()->enterScope('request');
-        $this->getContainer()->set(
-            'request', new \Symfony\Component\HttpFoundation\Request(), 
-            'request'
-        );
         
         //name of action to run
         $action = $input->getArgument('action');

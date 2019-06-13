@@ -132,11 +132,3 @@ services:
             logger: "@logger"
         tags:
             - { name: kernel.event_listener, event: console.exception }
-            
-    # For logging errors in console commands, as per http://symfony.com/doc/current/cookbook/console/logging.html
-    mb_core.kernel.listener.command_dispatch:
-        class: MedBrief\CoreBundle\EventListener\ErrorLoggerListener
-        arguments:
-            logger: "@logger"
-        tags:
-            - { name: kernel.event_listener, event: console.terminate }
